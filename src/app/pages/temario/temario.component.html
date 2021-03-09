@@ -1,1 +1,20 @@
 <h1>Temario</h1>
+
+<div class="row">
+
+    <div class="alert alert-primary" role="alert">
+        Me gustan: {{ meGustan }}
+    </div>
+
+    <div class="col-md-4" *ngFor="let tema of temas; let i = index">
+
+       <app-tarjeta 
+            [dato] = "tema"
+            [cabecera] = "'Tema'"
+            [numero] = "i + 1"
+            (eventoMeGusta) = "eventoMeGustaRecibido($event)"
+        ></app-tarjeta>
+
+    </div>
+
+</div>

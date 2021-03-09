@@ -1,0 +1,83 @@
+
+<table class="table table-bordered">
+
+    <thead>
+        <th>Pipe</th>
+        <th>Original</th>
+        <th>Expresión</th>
+        <th>Resultado</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UpperCase</td>
+            <td>{{ nombre }}</td>
+            <td>nombre | uppercase</td>
+            <td>{{ nombre | uppercase }}</td>
+        </tr>
+
+        <tr>
+            <td>LowerCase</td>
+            <td>{{ nombre }}</td>
+            <td>nombre | lowercase</td>
+            <td>{{ nombre | lowercase }}</td>
+        </tr>
+
+        <tr>
+            <td>Slice</td>
+            <td>{{ texto }}</td>
+            <td>texto | slice: 4:10</td>
+            <td>{{ texto | slice: 4:10 }}</td>
+        </tr>
+
+        <tr>
+            <td>TitleCase</td>
+            <td>{{ nombre }}</td>
+            <td>nombre | titlecase</td>
+            <td>{{ nombre | titlecase }}</td>
+        </tr>
+
+        <tr>
+            <td>Currency</td>
+            <td>{{ precio }}</td>
+            <td>precio | currency</td>
+            <td>{{ precio | currency}}</td>
+        </tr>
+
+        <tr>
+            <td>Currency</td>
+            <td>{{ precio }}</td>
+            <td>precio | currency:"EUR"</td>
+            <td>{{ precio | currency:"EUR"}}</td>
+        </tr>
+
+        <tr>
+            <td>DatePipe</td>
+            <td>{{ fecha }}</td>
+            <td>fecha | date</td>
+            <td>{{ fecha | date }}</td>
+        </tr>
+
+        <tr>
+            <td>DatePipe</td>
+            <td>{{ fecha }}</td>
+            <td>fecha | date:'short'</td>
+            <td>{{ fecha | date:'short' }}</td>
+        </tr>
+
+        <tr>
+            <td>DatePipe</td>
+            <td>{{ fecha }}</td>
+            <td>fecha | date:'MMMM dd, YYYY'</td>
+            <td>{{ fecha | date:'MMMM dd, YYYY' }}</td>
+        </tr>
+
+        <tr>
+            <td>Alreves (pipe propio)</td>
+            <td>{{ texto }}</td>
+            <td>texto | alreves</td>
+            <td>{{ texto | alreves }}</td>
+        </tr>
+
+    </tbody>
+
+</table>

@@ -1,0 +1,19 @@
+
+<div class="card mb-3">
+
+    <div class="card-header">{{ cabecera }} {{ numero }}</div>
+
+    <div class="card-body text-primary">
+
+        <h5 class="text-title">{{ dato.titulo }}</h5>
+
+        <p class="card-text">{{ dato.contenido }}</p>
+
+        <hr>
+        
+        <button (click)="meGusta()"
+            class="btn btn-primary"><i class="fas fa-thumbs-up"></i> Me gusta</button>
+
+    </div>
+
+</div>
