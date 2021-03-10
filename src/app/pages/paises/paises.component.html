@@ -1,0 +1,74 @@
+<h2>Tabla con Angular Material</h2>
+<hr>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element" class="td_name"> {{element.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Capital">
+        <th mat-header-cell *matHeaderCellDef> Capital </th>
+        <td mat-cell *matCellDef="let element" class="td_capital"> {{element.capital}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Población">
+        <th mat-header-cell *matHeaderCellDef> Población </th>
+        <td mat-cell *matCellDef="let element" class="td_poblacion"> {{element.population}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Bandera">
+        <th mat-header-cell *matHeaderCellDef> Bandera </th>
+        <td mat-cell *matCellDef="let element" class="td_bandera">
+          <img [src]="element.flag" class="bandera">
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+<!--
+<div *ngIf="cargando" 
+    class="alert alert-info text-center">
+    
+    <i class="fas fa-spinner fa-spin"></i>
+    {{ textoCargando }}
+
+</div>
+
+<div *ngIf="error" 
+    class="alert alert-danger text-center">
+    
+    <i class="fas fa-exclamation-circle"></i>
+    {{ textoCargando }}
+
+</div>
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Bandera </th>
+            <th> Pais </th>
+            <th> Población </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let pais of paises; let i = index">
+            <td> {{ i + 1 }} </td>
+            <td> <img [src]="pais.flag" class="bandera"> </td>
+            <td> {{ pais.name }} </td>
+            <td> {{ pais.population }} </td>
+        </tr>
+    </tbody>
+</table>
+-->
