@@ -1,6 +1,8 @@
+<app-modal></app-modal>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Ejercicio</a>
+      <a class="navbar-brand" href="#">{{ titulo }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,6 +23,9 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['paises']" routerLinkActive="active">Paises</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['grafica']" routerLinkActive="active">Gráfica</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Clientes
@@ -40,6 +45,24 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+
+        <app-usuario></app-usuario>
+
+
+        <button 
+        *ngIf="!usuarioService.autenticado"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="btn btn-outline-success" 
+          type="submit">Entrar</button>
+
+          <button 
+          *ngIf="usuarioService.autenticado"
+          class="btn btn-outline-success" 
+          (click)="usuarioService.logout()"
+          type="submit">Salir</button>
+
+          
       </div>
     </div>
   </nav>

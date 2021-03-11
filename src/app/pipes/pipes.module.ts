@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AlrevesPipe } from './alreves.pipe';
 import { ImagenPipe } from './imagen.pipe';
 
-
-
 @NgModule({
   declarations: [
     AlrevesPipe,

@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 
-
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-export class NavbarComponent {
+export class UsuarioComponent implements OnInit {
 
   constructor(public usuarioService: UsuarioService) { }
-
-  titulo = 'Curso Angular Ed. 2 (Fran)';
 
   ngOnInit(): void {
   }
