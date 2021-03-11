@@ -1,6 +1,9 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,12 +15,7 @@ import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
 import { PaisesComponent } from './pages/paises/paises.component';
 
 import { PipesComponent } from './pages/pipes/pipes.component';
-import { AlrevesPipe } from './pipes/alreves.pipe';
-
-import { FormsModule } from '@angular/forms';
-
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PipesModule } from './pipes/pipes.module';
 
 //Módulo de componentes de material
 import { MaterialModule } from './material/material.module';
@@ -39,7 +37,6 @@ registerLocaleData ( localeES );
     DirectivasComponent,
     TarjetaComponent,
     PipesComponent,
-    AlrevesPipe,
     PaisesComponent,
     ClientesComponent,
     ClienteComponent
@@ -50,6 +47,7 @@ registerLocaleData ( localeES );
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule, 
+    PipesModule,
     MaterialModule
   ],
   providers: [

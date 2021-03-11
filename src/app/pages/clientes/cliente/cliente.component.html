@@ -1,1 +1,105 @@
-<p>cliente works!</p>
+<div class="card animate__animated animate__fadeIn animate__fast mt-3">
+    <div class="card-header">Clientes</div>
+  
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card-body text-primary">
+          <form novalidate #formulario="ngForm" (ngSubmit)="guardarCliente(formulario)">
+            <div class="form-group">
+              <label for="identificador" class="col-form-label"
+                >Identificador</label
+              >
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="identificador"
+                  id="inputIdentificador"
+                  [(ngModel)]="cliente.identificador"
+                  required
+                  minlength="3"
+                />
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="nombre" class="col-form-label">Nombre</label>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombre"
+                  id="inputNombre"
+                  [(ngModel)]="cliente.nombre"
+                  required
+                  minlength="5"
+                />
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email</label>
+              <div>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="inputEmail"
+                  [(ngModel)]="cliente.email"
+                  required
+                  minlength="5"
+                />
+              </div>
+            </div>
+  
+            <div class="mt-2">
+                <button 
+                    [disabled]="guardando"
+                    type="submit"
+                    class="btn btn-primary">
+                    <i [ngClass]= "{'fas fa-spinner fa-spin': guardando}"></i>
+                    {{ tituloBoton }}
+                </button>
+    
+                <button type="button"
+                routerLink="/clientes" 
+                class="btn btn-secondary">Cancelar</button>
+            </div>
+         
+          </form>
+        </div>
+      </div>
+  
+      <div class="col-md-5">
+  
+        <div class="card-body" align="center">
+            <h4 class="card-title">Foto del cliente</h4>
+            <h6 class="card-subtitle"></h6>
+  
+            <img *ngIf="!imagenTemp" [src]="cliente.clouds | imagen:'clientes'" class="w150">
+            <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+  
+            <input type="file" (change)="seleccionImagen( $event.target.files[0] )">
+            
+  
+            <br>
+            <br>
+  
+            <button 
+            (click)="cambiarImagen()" [disabled]="!imagenSubir"
+            type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i> Actualizar Foto</button>
+  
+        </div>
+    
+    </div>
+
+  
+    <div class="row">
+      <div class="card-body">
+        <h4 class="card-title">Sus vehículos</h4>
+        
+      </div>
+    </div>
+  </div>
+  
