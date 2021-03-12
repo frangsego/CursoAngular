@@ -6,6 +6,7 @@ import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,17 @@ export class UsuarioService {
 
    // Estas propiedades, para luego saber si está logueado.
   usuario: Usuario = new Usuario('', '', '');
-  token = '';
+  private _token = '';
 
   httpHeaders = new HttpHeaders(
     {'Content-Type': 'application/json'}
   );
 
-  constructor(private http: HttpClient ) {
+  get token () {
+    return this._token;
+  }
+
+  constructor(private http: HttpClient, private router: Router ) {
     this.cargarStorage();
     if ( this.estaAutenticado()) {
       console.log('SI', this.usuario.nombre);
@@ -99,15 +104,15 @@ export class UsuarioService {
     localStorage.setItem('token', token);
     localStorage.setItem('usuario', JSON.stringify( usuario ));
     this.usuario = usuario;
-    this.token = token;
+    this._token = token;
   }
 
   cargarStorage() {
     if ( localStorage.getItem('token')) {
-      this.token = localStorage.getItem('token');
+      this._token = localStorage.getItem('token');
       this.usuario = JSON.parse(localStorage.getItem('usuario'));
     } else {
-      this.token = '';
+      this._token = '';
       this.usuario = null;
     }
   }
@@ -157,6 +162,7 @@ export class UsuarioService {
 
   logout() {
     this.borrarStorage();
+    this.router.navigateByUrl('/home');
   }
 
   borrarStorage() {
@@ -164,7 +170,7 @@ export class UsuarioService {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
     this.usuario = new Usuario('', '', '');
-    this.token = '';
+    this._token = '';
     // this.borrarStorageEmail();
     this.autenticado = false;
   }

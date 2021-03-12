@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Formularios
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Para peticiones http
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +23,8 @@ import { PipesComponent } from './pages/pipes/pipes.component';
 import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { TemplateComponent } from './pages/formularios/template/template.component';
+import { ReactivosComponent } from './pages/formularios/reactivos/reactivos.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
@@ -40,6 +42,7 @@ import { MaterialModule } from './material/material.module';
 // Configuración del idioma
 import localeES from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { TipoVehiculosComponent } from './pages/tipo-vehiculos/tipo-vehiculos.component';
 
 // Para los sockets
 const config: SocketIoConfig = { url: URL_SOCKET, options: {} };
@@ -62,13 +65,17 @@ registerLocaleData ( localeES );
     ClienteComponent,
     GraficaComponent,
     ModalComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    TipoVehiculosComponent,
+    TemplateComponent,
+    ReactivosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule, 
     PipesModule,
     MaterialModule,
